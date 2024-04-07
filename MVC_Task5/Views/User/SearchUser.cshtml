@@ -1,0 +1,30 @@
+﻿@* <script>
+    $(document).ready(function () {
+        $('#searchButton').click(function () {
+            var name = $('#searchInput').val();
+
+            $.ajax({
+                url: '@Url.Action("Search", "Home")',
+                type: 'GET',
+                data: { name: name },
+                success: function (data) {
+                    displayResults(data);
+                }
+            });
+        });
+
+        function displayResults(results) {
+            var $searchResults = $('#searchResults');
+            $searchResults.empty();
+
+            if (results.length > 0) {
+                for (var i = 0; i < results.length; i++) {
+                    var result = results[i];
+                    $searchResults.append('<p>Name: ' + result.Name + ', Age: ' + result.Age + '</p>');
+                }
+            } else {
+                $searchResults.append('<p>No results found.</p>');
+            }
+        }
+    });
+</script> *@

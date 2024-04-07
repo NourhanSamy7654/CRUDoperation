@@ -1,0 +1,14 @@
+﻿@model Courses
+
+<form asp-action="Edit" method="post">
+    <div class="form-grop">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-grop">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <br />
+    <button class="btn btn-success"> Edit course</button>
+</form>

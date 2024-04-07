@@ -1,0 +1,57 @@
+﻿@model List<User>
+@{
+    var user = Model;
+    // Layout = "_myAmazinDesgin";
+}
+
+<p>
+    <h2>User:@user.Count</h2>
+</p>
+<a asp-action="Add" class="btn btn-success">Add New User</a>
+<hr />
+<p>
+    
+    <input asp-action="Search" type="text" class="form-control"   />
+</p>
+
+@* @using (Html.BeginForm())
+    {
+    <p>
+        Name  : @Html.TextBox("SearchName")<br />
+        <br>
+        <input type="submit" value="Search"   />
+    </p>
+    } *@
+
+
+<table class="table table-hover table-bordered m-5">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>age</th>
+        <th>email</th>
+        <th>Detiles</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+    </tr>
+
+    @for (int i = 0; i < user.Count; i++)
+        {
+        <tr>
+            <td>@(i + 1)</td>
+             <td>@user[i].Name</td>
+            <td>@user[i].Age</td>
+            <td>@user[i].email</td>
+
+
+
+            <td>  <a asp-action="Detailes" asp-route-id="@user[i].id" class="btn btn-primary btn-sm  "> <i class="fa-solid fa-book-open-reader"></i>  Details</a></td>
+            <td><a asp-action="Edit" asp-route-id="@user[i].id" class="btn btn-info btn-sm"><i class="fa-solid fa-marker"></i> Edit</a></td>
+            <td>    <a asp-action="Delete" asp-route-id="@user[i].id" class="btn btn-danger btn-sm" onclick="return confirm('you delete realy?!! 😢')"> <i class="fa-solid fa-trash"></i>  Delete</a></td>
+
+            
+        </tr>
+        }
+
+</table>

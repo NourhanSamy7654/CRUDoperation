@@ -1,0 +1,21 @@
+﻿@model Courses
+@{
+    var cour_add = Model;
+}
+<form asp-action="AddCourse" method="post">
+    <div class="form-grop">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control"/>
+    </div>
+    <div class="form-grop">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-grop">
+        <label asp-for="Hour"></label>
+        <input asp-for="Hour" class="form-control" />
+        <span asp-validation-for="Hour" class="text-danger"></span>
+    </div>
+    <br />
+       <button class="btn btn-success"> Add course</button>
+</form>

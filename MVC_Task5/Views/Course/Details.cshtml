@@ -1,0 +1,17 @@
+﻿@model Courses
+
+@{
+    var cour = Model;
+}
+
+<div class="card">
+
+    <div class="card-body">
+        <h5 class="card-title">Name: @cour.Name</h5>
+        <h5 class="card-title">id: @cour.Id</h5>
+        <p class="card-text text-muted">Description: @cour.Description</p>
+        <p class="card-text text-muted"> HOUR:@cour.Hour</p>
+        <a asp-action="GetAll" asp-controller="Course" class="btn btn-primary">Return</a>
+    </div>
+
+</div>

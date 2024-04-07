@@ -1,0 +1,17 @@
+﻿@model  User
+
+@{
+    var user = Model;
+}
+
+<div class="card">
+    
+    <div class="card-body">
+     <h5 class="card-title">Name: @user.Name</h5> 
+        <p class="card-text text-muted">Age: @user.Age</p>
+        <p class="card-text text-muted">email: @user.email</p>
+        <p class="card-text text-muted">Courses: @(user?.courses?.Name ?? "Not Assign")</p>
+        <a asp-action="GetAll" asp-controller="User" class="btn btn-primary">Return</a>
+    </div>
+
+</div>

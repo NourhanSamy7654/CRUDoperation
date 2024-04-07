@@ -1,0 +1,44 @@
+﻿@using MVC_Task5.Models.View_Model
+
+@model User
+
+@{
+    var courses = ViewBag.courses;
+}
+<form asp-action="Edit" method="post">
+    <div class="form-grop">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-grop">
+        <label asp-for="Age"></label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div class="form-grop">
+        <label asp-for="email"></label>
+        <input asp-for="email" class="form-control" />
+        <span asp-validation-for="email" class="text-danger"></span>
+    </div>
+    <div class="form-grop">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-grop">
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword " class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="form-grop">
+        <label asp-for="coursesId"></label>
+        <select class="form-select" asp-for="coursesId" asp-items="courses"></select>
+    </div>
+
+    <br />
+    <button class="btn btn-success"> Edit course</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

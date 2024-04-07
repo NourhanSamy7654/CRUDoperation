@@ -1,0 +1,40 @@
+﻿@model List<Courses>
+@{
+    var course = Model;
+}
+
+
+<h2>Courses: @course.Count</h2>
+<hr />
+
+<a asp-action="AddCourse" class="btn btn-success">Add New courses</a>
+
+<table class="table table-hover table-bordered m-4">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Details</th>
+        <th>update</th>
+        <th>Delete</th>
+
+    </tr>
+
+    @for (int i = 0; i < course.Count; i++)
+    {
+        <tr>
+            <td>@(i + 1)</td>
+            <td>@course[i].Name</td>
+            <td>@course[i].Description</td>
+            
+            <td> <a asp-action="Details" asp-route-id="@course[i].Id" class="btn btn-primary btn-sm"><i class="fa-solid fa-book-open-reader"></i> Details</a></td>
+
+            <td>  <a asp-action="Edit" asp-route-id="@course[i].Id" class="btn btn-info btn-sm"><i class="fa-solid fa-marker"></i> Edit</a></td>
+
+            <td> <a asp-action="Delete" asp-route-id="@course[i].Id" class="btn btn-danger btn-sm" onclick="return confirm('you delete realy?!! 😢')"> <i class="fa-solid fa-trash"></i> Delete</a></td>
+
+           
+        </tr>
+    }
+
+</table>
